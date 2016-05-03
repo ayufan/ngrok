@@ -18,7 +18,7 @@ ENV TLS_KEY=**None** \
 
 ENTRYPOINT ["/go/src/ngrok/entrypoint.sh"]
 
-CMD ngrokd -tlsKey=/server.key -tlsCrt=/server.crt \
+CMD exec ngrokd -tlsKey=/server.key -tlsCrt=/server.crt \
     -domain="${DOMAIN}" \
     -httpAddr="${HTTP_ADDR}" -httpsAddr="${HTTPS_ADDR}" \
     -tunnelAddr="${TUNNEL_ADDR}" -authtoken="${AUTHTOKEN}"
