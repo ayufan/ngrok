@@ -5,7 +5,7 @@ RUN ["apk", "add", "-U", "git", "ca-certificates", "go", "make"]
 COPY . /go/src/ngrok
 WORKDIR /go/src/ngrok
 
-RUN ["make", "deps", "BUILDTAGS=release"]
+RUN ["make", "release-server"]
 
 ENV TLS_KEY=**None** \
     TLS_CERT=**None** \

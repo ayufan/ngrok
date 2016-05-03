@@ -33,10 +33,6 @@ echo -e "${TLS_CERT}" > /server.crt
 
 export PATH="$PWD/bin:$PATH"
 
-if [ ! -x bin/ngrokd ]; then
-    make release-server
-fi
-
 cat > /root/.ngrok <<EOF
 server_addr: ${TUNNEL_ADDR}
 auth_token: ${AUTH_TOKEN}
