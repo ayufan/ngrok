@@ -22,8 +22,8 @@ if [ "${DOMAIN}" == "**None**" ]; then
     exit 1
 fi
 
-if [ "${AUTHTOKEN}" == "**None**" ]; then
-    echo "Please specify AUTHTOKEN"
+if [ "${AUTH_TOKEN}" == "**None**" ]; then
+    echo "Please specify AUTH_TOKEN"
     exit 1
 fi
 
@@ -39,6 +39,7 @@ fi
 
 cat > /root/.ngrok <<EOF
 server_addr: ${TUNNEL_ADDR}
+auth_token: ${AUTH_TOKEN}
 EOF
 
 exec "$@"

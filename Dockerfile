@@ -14,11 +14,11 @@ ENV TLS_KEY=**None** \
     TUNNEL_ADDR=:4443 \
     HTTP_ADDR=:80 \
     HTTPS_ADDR=:443 \
-    AUTHTOKEN=**None**
+    AUTH_TOKEN=**None**
 
 ENTRYPOINT ["/go/src/ngrok/entrypoint.sh"]
 
 CMD exec ngrokd -tlsKey=/server.key -tlsCrt=/server.crt \
     -domain="${DOMAIN}" \
     -httpAddr="${HTTP_ADDR}" -httpsAddr="${HTTPS_ADDR}" \
-    -tunnelAddr="${TUNNEL_ADDR}" -authtoken="${AUTHTOKEN}"
+    -tunnelAddr="${TUNNEL_ADDR}" -authtoken="${AUTH_TOKEN}"
