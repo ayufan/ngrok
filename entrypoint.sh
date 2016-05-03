@@ -29,7 +29,6 @@ echo -e "${TLS_CERT}" > /server.crt
 export PATH="$PWD/bin:$PATH"
 
 if [ ! -x bin/ngrokd ]; then
-    apk add -U git ca-certificates go
     make release-server release-client-cross
 fi
 

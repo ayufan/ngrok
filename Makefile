@@ -1,6 +1,7 @@
 .PHONY: default server client deps fmt clean all release-all assets client-assets server-assets contributors
 export GOPATH:=$(shell pwd)
 
+GOX_ARGS?=-os="linux" -os="darwin" -os="windows"
 BUILDTAGS=debug
 default: all
 
@@ -42,7 +43,7 @@ release-server: server
 release-client-cross: BUILDTAGS=release
 release-client-cross: deps
 	go get github.com/mitchellh/gox
-	gox -os="linux" -os="darwin" -os="windows" -tags '$(BUILDTAGS)' ngrok/main/ngrok
+	gox $(GOX_ARGS) -tags '$(BUILDTAGS)' ngrok/main/ngrok
 
 release-all: fmt release-cross release-server
 
