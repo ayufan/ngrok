@@ -39,7 +39,12 @@ release-client: client
 release-server: BUILDTAGS=release
 release-server: server
 
-release-all: fmt release-client release-server
+release-client-cross: BUILDTAGS=release
+release-client-cross: deps
+	go get github.com/mitchellh/gox
+	gox -os="linux" -os="darwin" -os="windows" -tags '$(BUILDTAGS)' ngrok/main/ngrok
+
+release-all: fmt release-cross release-server
 
 all: fmt client server
 
