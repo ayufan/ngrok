@@ -22,6 +22,11 @@ if [ "${DOMAIN}" == "**None**" ]; then
     exit 1
 fi
 
+if [ "${AUTHTOKEN}" == "**None**" ]; then
+    echo "Please specify AUTHTOKEN"
+    exit 1
+fi
+
 echo -e "${CA_CERT}" > assets/client/tls/ngrokroot.crt
 echo -e "${TLS_KEY}" > /server.key
 echo -e "${TLS_CERT}" > /server.crt

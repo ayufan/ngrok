@@ -14,7 +14,7 @@ ENV TLS_KEY=**None** \
     TUNNEL_ADDR=:4443 \
     HTTP_ADDR=:80 \
     HTTPS_ADDR=:443 \
-    AUTHTOKEN=
+    AUTHTOKEN=**None**
 
 ENTRYPOINT ["/go/src/ngrok/entrypoint.sh"]
 
